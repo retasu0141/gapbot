@@ -921,6 +921,80 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
         "layout": "vertical",
         "contents": [
           {
+            "type": "image",
+            "url": "https://shunkashutou.com/market/wp-content/uploads/2017/01/lettuce-768x512.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "2:3",
+            "gravity": "top"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "helps[my]",
+                    "size": "xl",
+                    "color": "#ffffff",
+                    "weight": "bold"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "自分に関するhelpを表示",
+                    "color": "#ebebeb",
+                    "size": "sm",
+                    "flex": 0
+                  }
+                ],
+                "spacing": "lg"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "md",
+                "contents": [
+                  {
+                    "type": "button",
+                    "style": "secondary",
+                    "action": {
+                      "type": "uri",
+                      "label": "helpを表示",
+                      "uri": "line://app/1602687308-GXq4Vvk9?type=text&text=my:help"
+                    }
+                  }
+                ]
+              }
+            ],
+            "position": "absolute",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px",
+            "backgroundColor": "#03303Acc",
+            "paddingAll": "20px",
+            "paddingTop": "18px"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
             "type": "text",
             "text": day+"のトレンド",
             "weight": "bold",
@@ -958,52 +1032,52 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
               {
                 "type": "text",
                 "text": "・1 "+text+text_,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・2 "+text2+_text2,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・3 "+text3+_text3,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・4 "+text4+text4_,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・5 "+text5+_text5,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・6 "+text6+_text6,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・7 "+text7+_text7,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・8 "+text8+_text8,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・9 "+text9+_text9,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・10 "+text10+_text10,
-                "size": "xxs"
+                "size": "md"
               }
             ]
           },
@@ -1084,52 +1158,52 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
               {
                 "type": "text",
                 "text": "・11 "+text_+_text_,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・12 "+text2_+_text2_,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・13 "+text3_+_text3_,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・14 "+text4_+_text4_,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・15 "+text5_+_text5_,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・16 "+text6_+_text6_,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・17 "+text7_+_text7_,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・18 "+text8_+_text8_,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・19 "+text9_+_text9_,
-                "size": "xxs"
+                "size": "md"
               },
               {
                 "type": "text",
                 "text": "・20 "+text10_+_text10_,
-                "size": "xxs"
+                "size": "md"
               }
             ]
           },

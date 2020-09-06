@@ -27,7 +27,7 @@ import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import codecs
-from datetime import date, datetime, timedelta
+import datetime
 from io import BytesIO
 import urllib
 import os,io
@@ -79,7 +79,7 @@ def handle_message(event):
 
         keyword = msg_text
         # 今日
-        today = date.today()
+        today = datetime.date.today()
 
         # 30日前
         day = today - timedelta(30)

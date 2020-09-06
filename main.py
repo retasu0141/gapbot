@@ -35,6 +35,8 @@ import base64
 import json
 import urllib.request
 
+from datetime import datetime as dt
+
 app = Flask(__name__)
 YOUR_CHANNEL_ACCESS_TOKEN = os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
 YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
@@ -86,7 +88,7 @@ def handle_message(event):
 
         #print(day)
 
-        dt_now = datetime.datetimenow()
+        dt_now = datetime.datetime.now()
 
         dt_now_s = str(dt_now.microsecond)
         pytrends = TrendReq(hl='ja-JP', tz=360)

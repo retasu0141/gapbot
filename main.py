@@ -872,6 +872,36 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
     T1['articles'][0]['image']['imageUrl']
     T1['articles'][0]['snippet']
     '''
+    if T1['articles'][0]['image']['newsUrl'] in T1:
+        T1img = T1['articles'][0]['image']['imageUrl']
+        T1url = T1['articles'][0]['image']['newsUrl']
+    elif T1['articles'][1]['image']['newsUrl'] in T1:
+        T1img = T1['articles'][1]['image']['imageUrl']
+        T1url = T1['articles'][1['image']['newsUrl']
+    elif T1['articles'][2]['image']['newsUrl'] in T1:
+        T1img = T1['articles'][2]['image']['imageUrl']
+        T1url = T1['articles'][2['image']['newsUrl']
+
+    if T2['articles'][0]['image']['newsUrl'] in T1:
+        T2img = T2['articles'][0]['image']['imageUrl']
+        T2url = T2['articles'][0]['image']['newsUrl']
+    elif T1['articles'][1]['image']['newsUrl'] in T1:
+        T2img = T2['articles'][1]['image']['imageUrl']
+        T2url = T2['articles'][1['image']['newsUrl']
+    elif T2['articles'][2]['image']['newsUrl'] in T1:
+        T2img = T2['articles'][2]['image']['imageUrl']
+        T2url = T2['articles'][2['image']['newsUrl']
+
+    if T3['articles'][0]['image']['newsUrl'] in T1:
+        T3img = T3['articles'][0]['image']['imageUrl']
+        T3url = T3['articles'][0]['image']['newsUrl']
+    elif T1['articles'][1]['image']['newsUrl'] in T1:
+        T3img = T3['articles'][1]['image']['imageUrl']
+        T3url = T3['articles'][1['image']['newsUrl']
+    elif T1['articles'][2]['image']['newsUrl'] in T1:
+        T3img = T3['articles'][2]['image']['imageUrl']
+        T3url = T3['articles'][2['image']['newsUrl']
+
     text,text2,text3,text4,text5,text6,text7,text8,text9,text10 = tl_text(trendlist[0:10:1])
     text_,text2_,text3_,text4_,text5_,text6_,text7_,text8_,text9_,text10_ = tl_text(trendlist[10:20:1])
 
@@ -1144,7 +1174,7 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "2:3",
-            "url": T1['articles'][0]['image']['imageUrl']
+            "url": T1img
           },
           {
             "type": "box",
@@ -1185,7 +1215,7 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
                     "action": {
                       "type": "uri",
                       "label": "記事を読む",
-                      "uri": T1['articles'][0]['image']['newsUrl']
+                      "uri": T1url
                     },
                     "position": "relative",
                     "height": "sm",
@@ -1242,7 +1272,7 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "2:3",
-            "url": T2['articles'][0]['image']['imageUrl']
+            "url": T2img
           },
           {
             "type": "box",
@@ -1283,7 +1313,7 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
                     "action": {
                       "type": "uri",
                       "label": "記事を読む",
-                      "uri": T2['articles'][0]['image']['newsUrl']
+                      "uri": T2url
                     },
                     "position": "relative",
                     "height": "sm",
@@ -1340,7 +1370,7 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "2:3",
-            "url": T3['articles'][0]['image']['imageUrl']
+            "url": T3img
           },
           {
             "type": "box",
@@ -1381,7 +1411,7 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
                     "action": {
                       "type": "uri",
                       "label": "記事を読む",
-                      "uri": T3['articles'][0]['image']['newsUrl']
+                      "uri": T3url
                     },
                     "position": "relative",
                     "height": "sm",

@@ -908,21 +908,33 @@ def handle_message(event):
         #関連トピック
         df = pytrends.related_topics()
         #トップ
-        text_ = df[keyword]['top'].loc[:,['topic_title']].head(10)
-        tl1 = text_['topic_title']
+        try:
+            text_ = df[keyword]['top'].loc[:,['topic_title']].head(10)
+            tl1 = text_['topic_title']
+        except:
+            tl1=['なし']
         #上昇
-        text2_ = df[keyword]['rising'].loc[:,['topic_title']].head(10)
-        tl2 = text2_['topic_title']
+        try:
+            text2_ = df[keyword]['rising'].loc[:,['topic_title']].head(10)
+            tl2 = text2_['topic_title']
+        except:
+            tl2==['なし']
 
 
         #関連キーワード
         df = pytrends.related_queries()
         #トップ
-        text3_ = df[keyword]['top'].head(10)
-        tl3 = text3_['query']
+        try:
+            text3_ = df[keyword]['top'].head(10)
+            tl3 = text3_['query']
+        except:
+            tl3==['なし']
         #上昇
-        text4_ = df[keyword]['rising'].head(10)
-        tl4 = text4_['query']
+        try:
+            text4_ = df[keyword]['rising'].head(10)
+            tl4 = text4_['query']
+        except:
+            tl4=['なし']
 
         #print(keyword+'.csv')
 

@@ -82,7 +82,7 @@ def handle_message(event):
         today = datetime.date.today()
 
         # 30日前
-        day = today - timedelta(30)
+        day = today - datetime.timedelta(30)
 
         #print(day)
 

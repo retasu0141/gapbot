@@ -51,7 +51,7 @@ aws_s3_bucket        = os.environ['AWS_BUCKET']
 
 
 
-def tl_text(tl):
+def tl_text(tl1):
     try:
         text1 = tl1[0]
     except:

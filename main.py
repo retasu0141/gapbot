@@ -162,7 +162,7 @@ def handle_message(event):
         img.seek(0)
 
         plot_url = base64.b64encode(img.getvalue()).decode()
-        line_bot_api.reply_message = (msg_from,TextSendMessage(text=text))
+        line_bot_api.reply_message(msg_from,TextSendMessage(text=text))
 
         #plt.savefig("static\photo\img.png")
         #plt.close()

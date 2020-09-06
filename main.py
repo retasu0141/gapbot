@@ -1536,10 +1536,8 @@ def handle_message(event):
         flex = {"type": "flex","altText": msg_text,"contents":flex_}
         container_obj = FlexSendMessage.new_from_json_dict(flex)
 
-        line_bot_api.reply_message(msg_from,messages=container_obj
-
+        line_bot_api.reply_message(msg_from,messages=container_obj)
     if msg_text == '今日のトレンド':
-
         today__ = datetime.date.today()
         yesterday__ = today__ - datetime.timedelta(1)
         yesterday_ = str(yesterday__)
@@ -1616,7 +1614,7 @@ def handle_message(event):
         flex = {"type": "flex","altText": msg_text,"contents":flex_}
         container_obj = FlexSendMessage.new_from_json_dict(flex)
 
-        line_bot_api.reply_message(msg_from,messages=container_obj
+        line_bot_api.reply_message(msg_from,messages=container_obj)
 
     else:
         plt.clf()

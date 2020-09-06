@@ -86,7 +86,7 @@ def handle_message(event):
 
         #print(day)
 
-        dt_now = datetime.now()
+        dt_now = datetime.datetimenow()
 
         dt_now_s = str(dt_now.microsecond)
         pytrends = TrendReq(hl='ja-JP', tz=360)

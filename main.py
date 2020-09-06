@@ -978,8 +978,9 @@ def handle_message(event):
         #plot_url = base64.b64encode(img.getvalue()).decode()
         flex_ = flex01(tl1,tl2,tl3,tl4,s3_image_url)
         flex = {"type": "flex","altText": "flex message","contents":flex_}
+        container_obj = FlexSendMessage.new_from_json_dict(flex)
 
-        line_bot_api.reply_message(msg_from,messages=flex)
+        line_bot_api.reply_message(msg_from,messages=container_obj)
 
         #plt.savefig("static\photo\img.png")
         #plt.close()

@@ -1752,6 +1752,9 @@ def handle_message(event):
     msg_from = event.reply_token
     msg_text = event.message.text
     user_id = event.source.user_id
+    if msg_text == '使い方':
+        items = {'items': [{'type': 'action','action': {'type': 'message','label': '今日のトレンド','text': '今日のトレンド'}},{'type': 'action','action': {'type': 'message','label': '昨日のトレンド','text': '昨日のトレンド'}},{'type': 'action','action': {'type': 'message','label': 'トレンド','text': 'トレンド'}}]}
+        line_bot_api.reply_message(msg_from,TextSendMessage(text='[使い方]\n\n今日のトレンド一覧を見る場合は"今日のトレンド"\n昨日のトレンド一覧の場合は"昨日のトレンド"\nキーワードのトレンド情報を見たい場合はそのキーワードを送信してください',quick_reply=items))
     if msg_text == '昨日のトレンド':
 
         today__ = datetime.date.today()

@@ -872,35 +872,38 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
     T1['articles'][0]['image']['imageUrl']
     T1['articles'][0]['snippet']
     '''
-    if T1['articles'][0]['image']['newsUrl'] in T1:
+    try:
         T1img = T1['articles'][0]['image']['imageUrl']
         T1url = T1['articles'][0]['image']['newsUrl']
-    elif T1['articles'][1]['image']['newsUrl'] in T1:
-        T1img = T1['articles'][1]['image']['imageUrl']
-        T1url = T1['articles'][1]['image']['newsUrl']
-    elif T1['articles'][2]['image']['newsUrl'] in T1:
-        T1img = T1['articles'][2]['image']['imageUrl']
-        T1url = T1['articles'][2]['image']['newsUrl']
+    except:
+        try:
+            T1img = T1['articles'][1]['image']['imageUrl']
+            T1url = T1['articles'][1]['image']['newsUrl']
+        except:
+            T1img = T1['articles'][2]['image']['imageUrl']
+            T1url = T1['articles'][2]['image']['newsUrl']
 
-    if T2['articles'][0]['image']['newsUrl'] in T1:
+    try:
         T2img = T2['articles'][0]['image']['imageUrl']
         T2url = T2['articles'][0]['image']['newsUrl']
-    elif T1['articles'][1]['image']['newsUrl'] in T1:
-        T2img = T2['articles'][1]['image']['imageUrl']
-        T2url = T2['articles'][1]['image']['newsUrl']
-    elif T2['articles'][2]['image']['newsUrl'] in T1:
-        T2img = T2['articles'][2]['image']['imageUrl']
-        T2url = T2['articles'][2]['image']['newsUrl']
+    except:
+        try:
+            T2img = T2['articles'][1]['image']['imageUrl']
+            T2url = T2['articles'][1]['image']['newsUrl']
+        except:
+            T2img = T2['articles'][2]['image']['imageUrl']
+            T2url = T2['articles'][2]['image']['newsUrl']
 
-    if T3['articles'][0]['image']['newsUrl'] in T1:
+    try:
         T3img = T3['articles'][0]['image']['imageUrl']
         T3url = T3['articles'][0]['image']['newsUrl']
-    elif T1['articles'][1]['image']['newsUrl'] in T1:
-        T3img = T3['articles'][1]['image']['imageUrl']
-        T3url = T3['articles'][1]['image']['newsUrl']
-    elif T1['articles'][2]['image']['newsUrl'] in T1:
-        T3img = T3['articles'][2]['image']['imageUrl']
-        T3url = T3['articles'][2]['image']['newsUrl']
+    except:
+        try:
+            T3img = T3['articles'][1]['image']['imageUrl']
+            T3url = T3['articles'][1]['image']['newsUrl']
+        except:
+            T3img = T3['articles'][2]['image']['imageUrl']
+            T3url = T3['articles'][2]['image']['newsUrl']
 
     text,text2,text3,text4,text5,text6,text7,text8,text9,text10 = tl_text(trendlist[0:10:1])
     text_,text2_,text3_,text4_,text5_,text6_,text7_,text8_,text9_,text10_ = tl_text(trendlist[10:20:1])

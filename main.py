@@ -914,39 +914,6 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
     flex = {
   "type": "carousel",
   "contents": [
-          {
-            "type": "separator",
-            "margin": "xxl"
-          },
-          {
-            "type": "box",
-            "layout": "horizontal",
-            "margin": "md",
-            "contents": [
-              {
-                "type": "text",
-                "text": "Made by Retasu",
-                "size": "xs",
-                "color": "#aaaaaa",
-                "flex": 0
-              },
-              {
-                "type": "text",
-                "text": "@retasu_0141",
-                "color": "#aaaaaa",
-                "size": "xs",
-                "align": "end"
-              }
-            ]
-          }
-        ]
-      },
-      "styles": {
-        "footer": {
-          "separator": True
-        }
-      }
-    },
     {
       "type": "bubble",
       "body": {

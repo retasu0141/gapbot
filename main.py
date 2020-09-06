@@ -81,7 +81,7 @@ def handle_message(event):
 
         keyword = msg_text
         # 今日
-        today = date.today()
+        today = datetime.date.today()
 
         # 30日前
         day = today - timedelta(30)

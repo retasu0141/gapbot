@@ -19,7 +19,6 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import psycopg2
 import random
 
-from datetime import datetime as dt
 from pytrends.request import TrendReq  #グーグルトレンドの情報取得
 import pandas as pd  #データフレームで扱う
 import matplotlib
@@ -27,7 +26,6 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg
-import datetime
 import codecs
 from datetime import date, datetime, timedelta
 from io import BytesIO
@@ -81,7 +79,7 @@ def handle_message(event):
 
         keyword = msg_text
         # 今日
-        today = datetime.date.today()
+        today = date.today()
 
         # 30日前
         day = today - timedelta(30)

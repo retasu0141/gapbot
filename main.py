@@ -74,6 +74,8 @@ def handle_message(event):
     msg_text = event.message.text
     user_id = event.source.user_id
     if msg_text == 'ゲーム実況':
+        items = {'items': [{'type': 'action','action': {'type': 'message','label': '貯める','text': '貯める'}},{'type': 'action','action': {'type': 'message','label': '使う','text': '使う'}}]}
+        line_bot_api.reply_message(msg_from,TextSendMessage(text='まずは貯めるのか使うのかを教えてね！',quick_reply=items))
         plt.clf()
         #os.remove("static\photo\img.png")
 

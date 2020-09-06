@@ -1544,7 +1544,7 @@ def handle_message(event):
 
         download(today)
 
-        JSON_FILE = 'trends{}.json'.format(yesterday)
+        JSON_FILE = 'trends{}.json'.format(today)
         with open(JSON_FILE) as f:
             data = json.load(f)
     	#print(json.dumps(data,ensure_ascii=False, indent=2))
@@ -1650,7 +1650,7 @@ def handle_message(event):
             text2_ = df[keyword]['rising'].loc[:,['topic_title']].head(10)
             tl2 = text2_['topic_title']
         except:
-            tl2==['なし']
+            tl2=['なし']
 
 
         #関連キーワード
@@ -1660,7 +1660,7 @@ def handle_message(event):
             text3_ = df[keyword]['top'].head(10)
             tl3 = text3_['query']
         except:
-            tl3==['なし']
+            tl3=['なし']
         #上昇
         try:
             text4_ = df[keyword]['rising'].head(10)

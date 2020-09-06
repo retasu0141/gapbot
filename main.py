@@ -19,6 +19,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import psycopg2
 import random
 
+
 from pytrends.request import TrendReq  #グーグルトレンドの情報取得
 import pandas as pd  #データフレームで扱う
 import matplotlib
@@ -26,8 +27,10 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg
-import codecs
 import datetime
+import codecs
+#from datetime import date, datetime, timedelta
+from datetime import datetime as dt
 from io import BytesIO
 import urllib
 import os,io
@@ -35,7 +38,8 @@ import base64
 import json
 import urllib.request
 
-from datetime import datetime as dt
+import numpy as np
+import boto3
 
 app = Flask(__name__)
 YOUR_CHANNEL_ACCESS_TOKEN = os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
@@ -43,6 +47,813 @@ YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
 
 line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(YOUR_CHANNEL_SECRET)
+aws_s3_bucket        = os.environ['AWS_BUCKET']
+
+
+
+def tl_text(tl):
+    try:
+        text1 = tl1[0]
+    except:
+        text1 = "なし"
+    try:
+        text2 = tl1[1]
+    except:
+        text2 = "なし"
+    try:
+        text3 = tl1[2]
+    except:
+        text3 = "なし"
+    try:
+        text4 = tl1[3]
+    except:
+        text4 = "なし"
+    try:
+        text5 = tl1[4]
+    except:
+        text5 = "なし"
+    try:
+        text6 = tl1[5]
+    except:
+        text6 = "なし"
+    try:
+        text7 = tl1[6]
+    except:
+        text7 = "なし"
+    try:
+        text8 = tl1[7]
+    except:
+        text8 = "なし"
+    try:
+        text9 = tl1[8]
+    except:
+        text9 = "なし"
+    try:
+        text10 = tl1[9]
+    except:
+        text10 = "なし"
+    return text1, text2, text3, text4, text5, text6, text7, text8, text9, text10
+
+
+def flex01(tl1,tl2,tl3,tl4,url):
+    text,text2,text3,text4,text5,text6,text7,text8,text9,text10 = tl_text(tl1)
+    text_2,text2_2,text3_2,text4_2,text5_2,text6_2,text7_2,text8_2,text9_2,text10_2 = tl_text(tl2)
+    text_3,text2_3,text3_3,text4_3,text5_3,text6_3,text7_3,text8_3,text9_3,text10_3 = tl_text(tl3)
+    text_4,text2_4,text3_4,text4_4,text5_4,text6_4,text7_4,text8_4,text9_4,text10_4 = tl_text(tl4)
+    flex = {
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "url": url,
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "action": {
+          "type": "uri",
+          "uri": "http://linecorp.com/"
+        }
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "トレンドの変化",
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "lg",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "表示期間",
+                    "color": "#aaaaaa",
+                    "size": "sm",
+                    "flex": 1
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "30日",
+                    "wrap": true,
+                    "color": "#666666",
+                    "size": "sm",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "hogeのトレンド情報",
+            "weight": "bold",
+            "color": "#ff7f50"
+          },
+          {
+            "type": "text",
+            "text": "関連キーワード",
+            "weight": "bold",
+            "size": "xxl",
+            "margin": "md"
+          },
+          {
+            "type": "text",
+            "text": "トップ",
+            "size": "lg",
+            "color": "#aaaaaa",
+            "wrap": true
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "xxl",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text2
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text3
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text4
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text6
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text7
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text8
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text9
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text10
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "margin": "md",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Made by Retasu",
+                "size": "xs",
+                "color": "#aaaaaa",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "@retasu_0141",
+                "color": "#aaaaaa",
+                "size": "xs",
+                "align": "end"
+              }
+            ]
+          }
+        ]
+      },
+      "styles": {
+        "footer": {
+          "separator": true
+        }
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "hogeのトレンド情報",
+            "weight": "bold",
+            "color": "#ff7f50"
+          },
+          {
+            "type": "text",
+            "text": "関連キーワード",
+            "weight": "bold",
+            "size": "xxl",
+            "margin": "md"
+          },
+          {
+            "type": "text",
+            "text": "急上昇",
+            "size": "lg",
+            "color": "#aaaaaa",
+            "wrap": true
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "xxl",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text_2
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text2_2
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text3_2
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text4_2
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text5_2
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text6_2
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text7_2
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text8_2
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text9_2
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text10_2
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "margin": "md",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Made by Retasu",
+                "size": "xs",
+                "color": "#aaaaaa",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "@retasu_0141",
+                "color": "#aaaaaa",
+                "size": "xs",
+                "align": "end"
+              }
+            ]
+          }
+        ]
+      },
+      "styles": {
+        "footer": {
+          "separator": true
+        }
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "hogeのトレンド情報",
+            "weight": "bold",
+            "color": "#ff7f50"
+          },
+          {
+            "type": "text",
+            "text": "関連トピック",
+            "weight": "bold",
+            "size": "xxl",
+            "margin": "md"
+          },
+          {
+            "type": "text",
+            "text": "トップ",
+            "size": "lg",
+            "color": "#aaaaaa",
+            "wrap": true
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "xxl",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text_3
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text2_3
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text3_3
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text4_3
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text5_3
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text6_3
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text7_3
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text8_3
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text9_3
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text10_3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "margin": "md",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Made by Retasu",
+                "size": "xs",
+                "color": "#aaaaaa",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "@retasu_0141",
+                "color": "#aaaaaa",
+                "size": "xs",
+                "align": "end"
+              }
+            ]
+          }
+        ]
+      },
+      "styles": {
+        "footer": {
+          "separator": true
+        }
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "hogeのトレンド情報",
+            "weight": "bold",
+            "color": "#ff7f50"
+          },
+          {
+            "type": "text",
+            "text": "関連トピック",
+            "weight": "bold",
+            "size": "xxl",
+            "margin": "md"
+          },
+          {
+            "type": "text",
+            "text": "急上昇",
+            "size": "lg",
+            "color": "#aaaaaa",
+            "wrap": true
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "xxl",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text_4
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text2_4
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text3_4
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text4_4
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text5_4
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text6_4
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text7_4
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text8_4
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text9_4
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": text10_4
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "margin": "md",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Made by Retasu",
+                "size": "xs",
+                "color": "#aaaaaa",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "@retasu_0141",
+                "color": "#aaaaaa",
+                "size": "xs",
+                "align": "end"
+              }
+            ]
+          }
+        ]
+      },
+      "styles": {
+        "footer": {
+          "separator": true
+        }
+      }
+    }
+  ]
+}
+    return flex
+
 
 @app.route("/")
 def hello_world():
@@ -67,9 +878,6 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    global set_
-    global stoptime
-    global stoppoint
     msg_from = event.reply_token
     msg_text = event.message.text
     user_id = event.source.user_id
@@ -100,41 +908,21 @@ def handle_message(event):
         #関連トピック
         df = pytrends.related_topics()
         #トップ
-        try:
-            text_ = df[keyword]['top'].loc[:,['topic_title']].head(10)
-            text__ = text_['topic_title']
-            _text = '\n・'.join(text__)
-            text = _text.replace('Name: topic_title, dtype: object', '')
-        except:
-            text = 'なし'
+        text_ = df[keyword]['top'].loc[:,['topic_title']].head(10)
+        tl1 = text_['topic_title']
         #上昇
-        try:
-            text2_ = df[keyword]['rising'].loc[:,['topic_title']].head(10)
-            text2__ = text2_['topic_title']
-            _text2 = '\n・'.join(text2__)
-            text2 = _text2.replace('Name: topic_title, dtype: object', '')
-        except:
-            text2 = 'なし'
+        text2_ = df[keyword]['rising'].loc[:,['topic_title']].head(10)
+        tl2 = text2_['topic_title']
 
 
         #関連キーワード
         df = pytrends.related_queries()
         #トップ
-        try:
-            text3_ = df[keyword]['top'].head(10)
-            text3__ = text3_['query']
-            _text3 = '\n・'.join(text3__)
-            text3 = _text3.replace('Name: query, dtype: object', '')
-        except:
-            text3 = 'なし'
+        text3_ = df[keyword]['top'].head(10)
+        tl3 = text3_['query']
         #上昇
-        try:
-            text4_ = df[keyword]['rising'].head(10)
-            text4__ = text4_['query']
-            _text4 = '\n・'.join(text4__)
-            text4 = _text4.replace('Name: query, dtype: object', '')
-        except:
-            text4 = 'なし'
+        text4_ = df[keyword]['rising'].head(10)
+        tl4 = text4_['query']
 
         #print(keyword+'.csv')
 
@@ -155,16 +943,35 @@ def handle_message(event):
         #グラフの軸
         plt.xlabel(df['date'].name)
         plt.ylabel(keyword)
+        file_name = dt_now_s + '.png'
+        plt.savefig(file_name)
+        s3_resource = boto3.resource('s3')
+        s3_resource.Bucket(aws_s3_bucket).upload_file(file_name, file_name)
+        s3_client = boto3.client('s3')
+        s3_image_url = s3_client.generate_presigned_url(
+            ClientMethod = 'get_object',
+            Params       = {'Bucket': aws_s3_bucket, 'Key': file_name},
+            ExpiresIn    = 10,
+            HttpMethod   = 'GET'
+        )
+
+        #s3_image_url
 
         #canvas = FigureCanvasAgg(fig)
         #canvas.print_png(buf)
         #data = buf.getvalue()
 
-        plt.savefig(img, format='png')
-        img.seek(0)
+        #plt.savefig(img, format='png')
+        #img.seek(0)
 
-        plot_url = base64.b64encode(img.getvalue()).decode()
-        line_bot_api.reply_message(msg_from,TextSendMessage(text=text))
+        #plot_url = base64.b64encode(img.getvalue()).decode()
+        flex_ = flex01(tl1,tl2,tl3,tl4,s3_image_url)
+        flex = {
+  "type": "flex",
+  "altText": "this is a flex message",flex_
+}
+
+        line_bot_api.reply_message(msg_from,messages=flex)
 
         #plt.savefig("static\photo\img.png")
         #plt.close()

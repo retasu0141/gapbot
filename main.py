@@ -929,12 +929,12 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
               },
               {
                 "type": "text",
-                "text": "・2 "+text2+text2_,
+                "text": "・2 "+text2+_text2,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・3 "+text3+text3_,
+                "text": "・3 "+text3+_text3,
                 "size": "xxs"
               },
               {
@@ -944,32 +944,32 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
               },
               {
                 "type": "text",
-                "text": "・5 "+text5+text5_,
+                "text": "・5 "+text5+_text5,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・6 "+text6+text6_,
+                "text": "・6 "+text6+_text6,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・7 "+text7+text7_,
+                "text": "・7 "+text7+_text7,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・8 "+text8+text8_,
+                "text": "・8 "+text8+_text8,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・9 "+text9+text9_,
+                "text": "・9 "+text9+_text9,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・10 "+text10+text10_,
+                "text": "・10 "+text10+_text10,
                 "size": "xxs"
               }
             ]
@@ -1050,52 +1050,52 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
               },
               {
                 "type": "text",
-                "text": "・11 "+_text+_text_,
+                "text": "・11 "+text_+_text_,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・12 "+_text2+_text2_,
+                "text": "・12 "+text2_+_text2_,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・13 "+_text3+_text3_,
+                "text": "・13 "+text3_+_text3_,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・14 "+_text4+_text4_,
+                "text": "・14 "+text4_+_text4_,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・15 "+_text5+_text5_,
+                "text": "・15 "+text5_+_text5_,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・16 "+_text6+_text6_,
+                "text": "・16 "+text6_+_text6_,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・17 "+_text7+_text7_,
+                "text": "・17 "+text7_+_text7_,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・18 "+_text8+_text8_,
+                "text": "・18 "+text8_+_text8_,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・19 "+_text9+_text9_,
+                "text": "・19 "+text9_+_text9_,
                 "size": "xxs"
               },
               {
                 "type": "text",
-                "text": "・20 "+_text10+_text10_,
+                "text": "・20 "+text10_+_text10_,
                 "size": "xxs"
               }
             ]
@@ -1539,11 +1539,10 @@ def handle_message(event):
         line_bot_api.reply_message(msg_from,messages=container_obj)
     if msg_text == '今日のトレンド':
         today__ = datetime.date.today()
-        yesterday__ = today__ - datetime.timedelta(1)
-        yesterday_ = str(yesterday__)
-        yesterday = yesterday_.replace('-', '')
+        today_ = str(today__)
+        today = today_.replace('-', '')
 
-        download(yesterday)
+        download(today)
 
         JSON_FILE = 'trends{}.json'.format(yesterday)
         with open(JSON_FILE) as f:

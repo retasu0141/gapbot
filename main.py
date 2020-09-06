@@ -154,7 +154,7 @@ def flex01(tl1,tl2,tl3,tl4,url):
                   {
                     "type": "text",
                     "text": "30日",
-                    "wrap": true,
+                    "wrap": True,
                     "color": "#666666",
                     "size": "sm",
                     "flex": 5
@@ -190,7 +190,7 @@ def flex01(tl1,tl2,tl3,tl4,url):
             "text": "トップ",
             "size": "lg",
             "color": "#aaaaaa",
-            "wrap": true
+            "wrap": True
           },
           {
             "type": "separator",
@@ -333,7 +333,7 @@ def flex01(tl1,tl2,tl3,tl4,url):
       },
       "styles": {
         "footer": {
-          "separator": true
+          "separator": True
         }
       }
     },
@@ -361,7 +361,7 @@ def flex01(tl1,tl2,tl3,tl4,url):
             "text": "急上昇",
             "size": "lg",
             "color": "#aaaaaa",
-            "wrap": true
+            "wrap": True
           },
           {
             "type": "separator",
@@ -504,7 +504,7 @@ def flex01(tl1,tl2,tl3,tl4,url):
       },
       "styles": {
         "footer": {
-          "separator": true
+          "separator": True
         }
       }
     },
@@ -532,7 +532,7 @@ def flex01(tl1,tl2,tl3,tl4,url):
             "text": "トップ",
             "size": "lg",
             "color": "#aaaaaa",
-            "wrap": true
+            "wrap": True
           },
           {
             "type": "separator",
@@ -675,7 +675,7 @@ def flex01(tl1,tl2,tl3,tl4,url):
       },
       "styles": {
         "footer": {
-          "separator": true
+          "separator": True
         }
       }
     },
@@ -703,7 +703,7 @@ def flex01(tl1,tl2,tl3,tl4,url):
             "text": "急上昇",
             "size": "lg",
             "color": "#aaaaaa",
-            "wrap": true
+            "wrap": True
           },
           {
             "type": "separator",
@@ -846,7 +846,7 @@ def flex01(tl1,tl2,tl3,tl4,url):
       },
       "styles": {
         "footer": {
-          "separator": true
+          "separator": True
         }
       }
     }
@@ -935,7 +935,6 @@ def handle_message(event):
             tl4 = text4_['query']
         except:
             tl4=['なし']
-
         #print(keyword+'.csv')
 
         df = pd.read_csv(dt_now_s+'.csv',encoding='cp932')

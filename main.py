@@ -921,6 +921,519 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
         "layout": "vertical",
         "contents": [
           {
+            "type": "text",
+            "text": day+"のトレンド",
+            "weight": "bold",
+            "color": "#ff7f50",
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "トレンド一覧",
+            "weight": "bold",
+            "size": "xxl",
+            "margin": "md"
+          },
+          {
+            "type": "text",
+            "text": "2020-09-06",
+            "size": "xs",
+            "color": "#aaaaaa",
+            "wrap": True
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "xxl",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "separator",
+                "margin": "xxl"
+              },
+              {
+                "type": "text",
+                "text": "・1 "+text+text_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・2 "+text2+_text2,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・3 "+text3+_text3,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・4 "+text4+text4_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・5 "+text5+_text5,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・6 "+text6+_text6,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・7 "+text7+_text7,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・8 "+text8+_text8,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・9 "+text9+_text9,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・10 "+text10+_text10,
+                "size": "md"
+              }
+            ]
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "margin": "md",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Made by Retasu",
+                "size": "xs",
+                "color": "#aaaaaa",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "@retasu_0141",
+                "color": "#aaaaaa",
+                "size": "xs",
+                "align": "end"
+              }
+            ]
+          }
+        ]
+      },
+      "styles": {
+        "footer": {
+          "separator": True
+        }
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": day+"のトレンド",
+            "weight": "bold",
+            "color": "#ff7f50",
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "トレンド一覧2",
+            "weight": "bold",
+            "size": "xxl",
+            "margin": "md"
+          },
+          {
+            "type": "text",
+            "text": "2020-09-06",
+            "size": "xs",
+            "color": "#aaaaaa",
+            "wrap": True
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "xxl",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "separator",
+                "margin": "xxl"
+              },
+              {
+                "type": "text",
+                "text": "・11 "+text_+_text_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・12 "+text2_+_text2_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・13 "+text3_+_text3_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・14 "+text4_+_text4_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・15 "+text5_+_text5_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・16 "+text6_+_text6_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・17 "+text7_+_text7_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・18 "+text8_+_text8_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・19 "+text9_+_text9_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・20 "+text10_+_text10_,
+                "size": "md"
+              }
+            ]
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "margin": "md",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Made by Retasu",
+                "size": "xs",
+                "color": "#aaaaaa",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "@retasu_0141",
+                "color": "#aaaaaa",
+                "size": "xs",
+                "align": "end"
+              }
+            ]
+          }
+        ]
+      },
+      "styles": {
+        "footer": {
+          "separator": True
+        }
+      }
+    }
+  ]
+}
+    return flex
+
+
+'''
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": day+"のトレンド",
+            "weight": "bold",
+            "color": "#ff7f50",
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "トレンド一覧",
+            "weight": "bold",
+            "size": "xxl",
+            "margin": "md"
+          },
+          {
+            "type": "text",
+            "text": "2020-09-06",
+            "size": "xs",
+            "color": "#aaaaaa",
+            "wrap": True
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "xxl",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "separator",
+                "margin": "xxl"
+              },
+              {
+                "type": "text",
+                "text": "・1 "+text+text_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・2 "+text2+_text2,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・3 "+text3+_text3,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・4 "+text4+text4_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・5 "+text5+_text5,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・6 "+text6+_text6,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・7 "+text7+_text7,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・8 "+text8+_text8,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・9 "+text9+_text9,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・10 "+text10+_text10,
+                "size": "md"
+              }
+            ]
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "margin": "md",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Made by Retasu",
+                "size": "xs",
+                "color": "#aaaaaa",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "@retasu_0141",
+                "color": "#aaaaaa",
+                "size": "xs",
+                "align": "end"
+              }
+            ]
+          }
+        ]
+      },
+      "styles": {
+        "footer": {
+          "separator": True
+        }
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": day+"のトレンド",
+            "weight": "bold",
+            "color": "#ff7f50",
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "トレンド一覧2",
+            "weight": "bold",
+            "size": "xxl",
+            "margin": "md"
+          },
+          {
+            "type": "text",
+            "text": "2020-09-06",
+            "size": "xs",
+            "color": "#aaaaaa",
+            "wrap": True
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "xxl",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "separator",
+                "margin": "xxl"
+              },
+              {
+                "type": "text",
+                "text": "・11 "+text_+_text_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・12 "+text2_+_text2_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・13 "+text3_+_text3_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・14 "+text4_+_text4_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・15 "+text5_+_text5_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・16 "+text6_+_text6_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・17 "+text7_+_text7_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・18 "+text8_+_text8_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・19 "+text9_+_text9_,
+                "size": "md"
+              },
+              {
+                "type": "text",
+                "text": "・20 "+text10_+_text10_,
+                "size": "md"
+              }
+            ]
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "margin": "md",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Made by Retasu",
+                "size": "xs",
+                "color": "#aaaaaa",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "@retasu_0141",
+                "color": "#aaaaaa",
+                "size": "xs",
+                "align": "end"
+              }
+            ]
+          }
+        ]
+      },
+      "styles": {
+        "footer": {
+          "separator": True
+        }
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
             "type": "image",
             "size": "full",
             "aspectMode": "cover",
@@ -1210,7 +1723,7 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
     }
   ]
 }
-    return flex
+'''
 
 
 @app.route("/")

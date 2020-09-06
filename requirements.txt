@@ -26,8 +26,8 @@ jmespath==0.9.3
 kiwisolver==1.0.1
 MarkupSafe==1.0
 numpy==1.15.1
-pyparsing==2.2.0
-python-dateutil==2.7.3
-pytz==2018.5
-s3transfer==0.1.13
-six==1.11.0
+pyparsing
+python-dateutil
+pytz
+s3transfer
+six

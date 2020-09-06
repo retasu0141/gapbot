@@ -921,80 +921,6 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
         "layout": "vertical",
         "contents": [
           {
-            "type": "image",
-            "url": "https://shunkashutou.com/market/wp-content/uploads/2017/01/lettuce-768x512.jpg",
-            "size": "full",
-            "aspectMode": "cover",
-            "aspectRatio": "2:3",
-            "gravity": "top"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "helps[my]",
-                    "size": "xl",
-                    "color": "#ffffff",
-                    "weight": "bold"
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "自分に関するhelpを表示",
-                    "color": "#ebebeb",
-                    "size": "sm",
-                    "flex": 0
-                  }
-                ],
-                "spacing": "lg"
-              },
-              {
-                "type": "box",
-                "layout": "vertical",
-                "spacing": "md",
-                "contents": [
-                  {
-                    "type": "button",
-                    "style": "secondary",
-                    "action": {
-                      "type": "uri",
-                      "label": "helpを表示",
-                      "uri": "line://app/1602687308-GXq4Vvk9?type=text&text=my:help"
-                    }
-                  }
-                ]
-              }
-            ],
-            "position": "absolute",
-            "offsetBottom": "0px",
-            "offsetStart": "0px",
-            "offsetEnd": "0px",
-            "backgroundColor": "#03303Acc",
-            "paddingAll": "20px",
-            "paddingTop": "18px"
-          }
-        ],
-        "paddingAll": "0px"
-      }
-    },
-    {
-      "type": "bubble",
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
             "type": "text",
             "text": day+"のトレンド",
             "weight": "bold",
@@ -1717,10 +1643,11 @@ def handle_message(event):
         	txt = 'トレンド{n}位{r}。検索回数{s}。関連{re}。'.format(n=number,r=rank,s=search,re=Relation)
         	text_list.append(txt)
         flex_ = flex02(T1,T2,T3,trendlist,trendlist_2,"今日")
-        flex = {"type": "flex","altText": msg_text,"contents":flex_}
-        container_obj = FlexSendMessage.new_from_json_dict(flex)
+        flex = FlexSendMessage(alt_text="hoge", contents=flex_)
+        #flex = {"type": "flex","altText": msg_text,"contents":flex_}
+        #container_obj = FlexSendMessage.new_from_json_dict(flex)
 
-        line_bot_api.reply_message(msg_from,messages=container_obj)
+        line_bot_api.reply_message(msg_from,messages=flex)
 
     else:
         plt.clf()

@@ -172,7 +172,7 @@ def handle_message(event):
         #グラフ表示
         #plt.show()
         #return '<img src="data:image/png;base64,{}">'.format(plot_url)
-        return render_template('choice.html',text=text,text2=text2,text3=text3,text4=text4,img="data:image/png;base64,{}".format(plot_url))
+        #return render_template('choice.html',text=text,text2=text2,text3=text3,text4=text4,img="data:image/png;base64,{}".format(plot_url))
 
     if msg_text == '設定する':
         items = {'items': [{'type': 'action','action': {'type': 'message','label': '貯める','text': '貯める'}},{'type': 'action','action': {'type': 'message','label': '使う','text': '使う'}}]}

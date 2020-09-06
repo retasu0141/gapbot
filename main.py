@@ -1713,7 +1713,7 @@ def handle_message(event):
         #img.seek(0)
 
         #plot_url = base64.b64encode(img.getvalue()).decode()
-        flex_ = flex01(tl1,tl2,tl3,tl4,s3_image_url)
+        flex_ = flex01(tl3,tl4,tl1,tl2,s3_image_url)
         flex = {"type": "flex","altText": keyword + "のトレンド","contents":flex_}
         container_obj = FlexSendMessage.new_from_json_dict(flex)
 

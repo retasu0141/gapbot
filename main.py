@@ -79,7 +79,7 @@ def handle_message(event):
         plt.clf()
         #os.remove("static\photo\img.png")
 
-        keyword = request.form['name']
+        keyword = msg_text
         # 今日
         today = date.today()
 

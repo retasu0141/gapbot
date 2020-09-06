@@ -877,7 +877,7 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
         T1url = T1['articles'][0]['image']['newsUrl']
     elif T1['articles'][1]['image']['newsUrl'] in T1:
         T1img = T1['articles'][1]['image']['imageUrl']
-        T1url = T1['articles'][1['image']['newsUrl']
+        T1url = T1['articles'][1]['image']['newsUrl']
     elif T1['articles'][2]['image']['newsUrl'] in T1:
         T1img = T1['articles'][2]['image']['imageUrl']
         T1url = T1['articles'][2['image']['newsUrl']
@@ -887,7 +887,7 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
         T2url = T2['articles'][0]['image']['newsUrl']
     elif T1['articles'][1]['image']['newsUrl'] in T1:
         T2img = T2['articles'][1]['image']['imageUrl']
-        T2url = T2['articles'][1['image']['newsUrl']
+        T2url = T2['articles'][1]['image']['newsUrl']
     elif T2['articles'][2]['image']['newsUrl'] in T1:
         T2img = T2['articles'][2]['image']['imageUrl']
         T2url = T2['articles'][2['image']['newsUrl']
@@ -897,7 +897,7 @@ def flex02(T1,T2,T3,trendlist,trendlist_2,day):
         T3url = T3['articles'][0]['image']['newsUrl']
     elif T1['articles'][1]['image']['newsUrl'] in T1:
         T3img = T3['articles'][1]['image']['imageUrl']
-        T3url = T3['articles'][1['image']['newsUrl']
+        T3url = T3['articles'][1]['image']['newsUrl']
     elif T1['articles'][2]['image']['newsUrl'] in T1:
         T3img = T3['articles'][2]['image']['imageUrl']
         T3url = T3['articles'][2['image']['newsUrl']

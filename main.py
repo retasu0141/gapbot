@@ -43,7 +43,7 @@ import boto3
 
 
 
-from janome_data_set import JanomeDataSet
+'''from janome_data_set import JanomeDataSet
 import string_preprocessing_tool as st_tool
 
 from selenium import webdriver
@@ -74,7 +74,7 @@ options = webdriver.ChromeOptions()
 options.add_argument('--headless')
 #driverに設定 ※optionsを指定しないとheadlessにならないので注意
 driver = webdriver.Chrome(options=options, executable_path=driver_path)
-
+'''
 app = Flask(__name__)
 YOUR_CHANNEL_ACCESS_TOKEN = os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
 YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
@@ -97,7 +97,7 @@ def download(day):
 
 
 
-
+'''
 def __google_search__( target_keyword):
     """google検索を使って該当データを取得する(ページ遷移する)
     Args:
@@ -284,7 +284,7 @@ def get_keyword_web_site_count( target_keyword):
     #sorted_patterns = [i for i in sorted_patterns if i[1]>1]
     #pprint.pprint(sorted_patterns)
     return sorted_patterns
-
+'''
 def tl_text(tl1):
     try:
         text1 = tl1[0]
@@ -2137,15 +2137,15 @@ def handle_message(event):
         #container_obj = FlexSendMessage.new_from_json_dict(flex)
 
         line_bot_api.reply_message(msg_from,messages=flex)
-    if '-' in msg_text:
-        target_keyword = msg_text.replace("-", "")
-        results = get_keyword_web_site_count(target_keyword)
+    #if '-' in msg_text:
+    #    target_keyword = msg_text.replace("-", "")
+    #    results = get_keyword_web_site_count(target_keyword)#
 
         #結果を出力する
         #print(results)
-        for info in results:
-            string = "%s, %ssite" % (info[0], info[1])
-            line_bot_api.reply_message(user_id,messages=string)
+    #    for info in results:
+    #        string = "%s, %ssite" % (info[0], info[1])
+    #        line_bot_api.reply_message(user_id,messages=string)
 
 
 

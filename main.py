@@ -65,9 +65,15 @@ import argparse
 
 
 from selenium import webdriver         # Webブラウザを自動操作する（python -m pip install selenium)
-from webdriver_manager.chrome import ChromeDriverManager
+#from webdriver_manager.chrome import ChromeDriverManager
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+#driver = webdriver.Chrome(ChromeDriverManager().install())
+
+driver_path = '/app/.chromedriver/bin/chromedriver'
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+#driverに設定 ※optionsを指定しないとheadlessにならないので注意
+driver = webdriver.Chrome(options=options, executable_path=driver_path)
 
 app = Flask(__name__)
 YOUR_CHANNEL_ACCESS_TOKEN = os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
